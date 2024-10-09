@@ -5,8 +5,58 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:desktopowa"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Background="CadetBlue"
+        Title="Wprowadzanie danych do paszportu. Wykonał: 12345678910" Height="350" Width="850">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Margin="30 30 15 30">
+            <Grid Margin="0 0 0 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Numer"/>
+                <TextBox Grid.Column="1" Background="Azure" LostFocus="NumberLostFocus" x:Name="Number"/>
+            </Grid>
+            <Grid Margin="0 0 0 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Imię"/>
+                <TextBox Grid.Column="1" Background="Azure" x:Name="FirstName"/>
+            </Grid>
+            <Grid Margin="0 0 0 30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Nazwisko"/>
+                <TextBox Grid.Column="1" Background="Azure" x:Name="LastName"/>
+            </Grid>
+            <GroupBox Header="Kolor oczu">
+                <StackPanel x:Name="Radios">
+                    <RadioButton Content="niebieskie" Margin="20 7 10 7" Background="Azure" IsChecked="True"/>
+                    <RadioButton Content="zielone" Margin="20 7 10 7" Background="Azure"/>
+                    <RadioButton Content="piwne" Margin="20 7 10 7" Background="Azure"/>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+
+        <Grid Margin="15 30 30 20" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <Image Source="000-zdjecie.jpg" Height="230" Margin="0 0 30 0" x:Name="Image1"/>
+                <Image Source="000-odcisk.jpg" Height="230" HorizontalAlignment="Right" x:Name="Image2"/>
+            </StackPanel>
+            <Button Grid.Row="1" Content="OK" Margin="50 10" Background="Azure" Click="Submit"/>
+        </Grid>
     </Grid>
 </Window>
